@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Upload Files Container -->
+<script text="text/javascript">
+
+$( document ).ready(function() {
+    $('.dropdown').each(function (key, dropdown) {
+        var $dropdown = $(dropdown);
+        $dropdown.find('.dropdown-menu a').on('click', function () {
+            $dropdown.find('button').text($(this).text()).append(' <span class="caret"></span>');
+        });
+    });
+});
+
+</script>
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #000000;">
+  <a class="navbar-brand" href="#"> <font size="5"><b>Cognitive Forecasting Tool</b></font></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+    </ul>
+    <a class="navbar-brand" href="#" style="max-width: 15%;">
+      <img src="https://solsticemedia.com.au/wp-content/uploads/2018/03/Deloitte-logo-white.png" class="img-fluid">
+    </a>
+  </div>
+</nav>
+
+          <!-- <span id="slider_value" style="color:red;font-size: 19px; vertical-align: middle; padding-left: 45%;"> -->
+<div class="background">
+  <div id="mainDiv">
+      <div id="loading" style="visibility: hidden;text-align: center;">
+          <img src="{{url_for('static', filename='loading_gear.gif')}}" id="Img5" data-transition="slide" />
+          <br><br><br><h1 class="green">
+          FORECASTING . . .</h1>
+      </div>
+
+            <form method="post" enctype="multipart/form-data" id="js-upload-form" style=" display:inline!important;">
+            <div class="form-group row has-success">
+            <div class="col" align="center">
+            <div class="upload-btn-wrapper">
+
+              <div class="dropdown"  align="center">
+              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">1. Select Commodity
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                {% for commodities in form.commodity %}
+                    <li><a href="#">{{ commodities }}</a></li>
+                {% endfor %}
+              </ul>
+              </div>
+              <br>
+
+              <div class="dropdown"  align="center">
+              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">2. Select Forecast Window
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                {% for periods in form.f_period %}
+                    <li><a href="#">{{ periods }}</a></li>
+                {% endfor %}
+              </ul>
+              </div>
+              <br>
+
+              <input type="hidden" name="btn_identifier" value="client_id_btn" />
+              <div class="btn-group-toggle" data-toggle="buttons" align="center">
+              <button id="btn-hide" align="center" type="submit" name="comm" class="button button1" id="js-upload-form" onClick="confSubmit(this.form);">3. Create Forecast</button>
+            </div>
+            <br><br><br><br><br><br><br><br>
+            </div>
+          </div>
+        </div>
+  </form>
+</div>
+</div>
+
+
+{% endblock %}
