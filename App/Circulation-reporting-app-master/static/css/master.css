@@ -1,0 +1,42 @@
+.navbar {
+    text-align: center;
+}
+
+
+.btn-primary.custom-btn {
+	background-color: "green";
+	border-color: "green";
+}
+
+.table {
+	width:100%;
+	white-space: nowrap;
+}
+
+.table th {
+
+	width:100%
+}
+.green {
+	color: #07831b
+}
+
+.table th:hover {
+	background-color: rgb(18, 221, 11);
+	color: rgb(16, 64, 16);
+	font-weight: bold;
+	
+	box-shadow: rgb(33, 127, 57) -1px 1px, rgb(33, 127, 53) -2px 2px, rgb(33, 127, 64) -3px 3px, rgb(33, 127, 64) -4px 4px, rgb(33, 127, 61) -5px 5px, rgb(33, 127, 49) -6px 6px;
+	transform: translate3d(6px, -6px, 0);
+	
+	transition-delay: 0s;
+		transition-duration: 0.4s;
+		transition-property: all;
+	transition-timing-function: line;
+  }
+
+.table th:first-child {
+	background: #049204
+}
+
+
